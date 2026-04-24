@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Start your free 14-day Zylova trial. Pick a plan and get your AI agent live in 48 hours." />
+  <title>Get Started — Zylova</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!--
+    STRIPE SETUP (Step 4):
+    1. Go to https://dashboard.stripe.com
+    2. Create 3 products: Starter ($97), Growth ($297), Pro ($597)
+    3. For each, create a Payment Link (Products > Payment Links)
+    4. Replace the STRIPE_LINKS below with your actual Payment Link URLs
+    5. Replace STRIPE_PK with your Stripe Publishable Key
+  -->
+  <script>
+    const STRIPE_LINKS = {
+      starter: "https://buy.stripe.com/YOUR_STARTER_LINK",
+      growth:  "https://buy.stripe.com/YOUR_GROWTH_LINK",
+      pro:     "https://buy.stripe.com/YOUR_PRO_LINK"
+    };
+
+    function goToCheckout(plan) {
+      const url = STRIPE_LINKS[plan];
+      if (url && !url.includes('YOUR_')) {
+        window.location.href = url;
+      } else {
+        alert('Payment links are not yet configured. Contact us at hello@zylova.ai to get started!');
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Zy<span>lova</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#usecases">Use Cases</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Talk to Us</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#usecases">Use Cases</a>
+      <a href="contact.html" class="mobile-cta">Talk to Us</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="hero-bg"></div>
+    <h1>Start Your <span style="color:var(--teal)">Free 14-Day Trial</span></h1>
+    <p>Pick a plan below. No credit card required to start. Setup included on every plan.</p>
+  </div>
+
+  <section class="section" style="padding-top:0">
+    <div class="section-inner">
+
+      <!-- Trust badges -->
+      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;">
+        <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.875rem;">
+          <span style="color:var(--teal);font-size:1.1rem;">&#9679;</span> 14-day free trial
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.875rem;">
+          <span style="color:var(--teal);font-size:1.1rem;">&#9679;</span> No contracts
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.875rem;">
+          <span style="color:var(--teal);font-size:1.1rem;">&#9679;</span> Cancel anytime
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.875rem;">
+          <span style="color:var(--teal);font-size:1.1rem;">&#9679;</span> Setup included
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.875rem;">
+          <span style="color:var(--teal);font-size:1.1rem;">&#9679;</span> Live in 48 hours
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- STARTER -->
+        <div class="pricing-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$97<span>/mo</span></div>
+          <p class="plan-desc">Perfect for getting started with AI automation</p>
+          <ul class="plan-features">
+            <li>FAQ &amp; inquiry agent</li>
+            <li>Lead capture &amp; logging</li>
+            <li>Email notifications to owner</li>
+            <li>Website chat widget</li>
+            <li>Up to 500 conversations/mo</li>
+            <li>14-day free trial</li>
+            <li>Setup &amp; onboarding included</li>
+            <li>Email support</li>
+          </ul>
+          <button onclick="goToCheckout('starter')" class="plan-btn plan-btn-outline">
+            Start Free Trial &rarr;
+          </button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.75rem;">No credit card required</p>
+        </div>
+
+        <!-- GROWTH (featured) -->
+        <div class="pricing-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <div class="plan-name">Growth</div>
+          <div class="plan-price">$297<span>/mo</span></div>
+          <p class="plan-desc">For businesses ready to automate their front desk</p>
+          <ul class="plan-features">
+            <li>Everything in Starter</li>
+            <li>Appointment booking integration</li>
+            <li>SMS &amp; email follow-up sequences</li>
+            <li>CRM integration (HubSpot, Airtable)</li>
+            <li>Google review generation</li>
+            <li>Up to 2,000 conversations/mo</li>
+            <li>Monthly performance review</li>
+            <li>Priority email &amp; chat support</li>
+          </ul>
+          <button onclick="goToCheckout('growth')" class="plan-btn plan-btn-filled">
+            Start Free Trial &rarr;
+          </button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.75rem;">No credit card required</p>
+        </div>
+
+        <!-- PRO -->
+        <div class="pricing-card">
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">$597<span>/mo</span></div>
+          <p class="plan-desc">Full custom agent with advanced workflows</p>
+          <ul class="plan-features">
+            <li>Everything in Growth</li>
+            <li>Custom AI workflows &amp; logic</li>
+            <li>Multi-channel (phone, SMS, web, email)</li>
+            <li>Advanced CRM &amp; Zapier sync</li>
+            <li>Unlimited conversations</li>
+            <li>Dedicated agent manager</li>
+            <li>Weekly optimization calls</li>
+            <li>Phone &amp; priority support</li>
+          </ul>
+          <button onclick="goToCheckout('pro')" class="plan-btn plan-btn-outline">
+            Start Free Trial &rarr;
+          </button>
+          <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.75rem;">No credit card required</p>
+        </div>
+
+      </div>
+
+      <!-- FAQ -->
+      <div style="max-width:640px;margin:5rem auto 0;">
+        <h2 class="section-title" style="text-align:center;margin-bottom:2.5rem;">Common Questions</h2>
+
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="border-bottom:1px solid var(--card-border);padding-bottom:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.5rem;">Do I need a credit card to start?</div>
+            <p style="color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.7;">No. Your 14-day free trial starts the moment you sign up. We'll only ask for payment details when your trial ends.</p>
+          </div>
+          <div style="border-bottom:1px solid var(--card-border);padding-bottom:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.5rem;">How fast can my agent go live?</div>
+            <p style="color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.7;">Most agents are live within 48 hours of signing up. We handle all setup — you just fill out our onboarding form and approve the agent before launch.</p>
+          </div>
+          <div style="border-bottom:1px solid var(--card-border);padding-bottom:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.5rem;">Can I switch plans later?</div>
+            <p style="color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.7;">Absolutely. You can upgrade or downgrade at any time. Changes take effect at the start of your next billing cycle.</p>
+          </div>
+          <div style="border-bottom:1px solid var(--card-border);padding-bottom:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.5rem;">What integrations do you support?</div>
+            <p style="color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.7;">We integrate with Google Calendar, Calendly, Acuity, HubSpot, Airtable, Twilio, Stripe, and 1,000+ tools via Zapier. Ask us if you need a specific integration.</p>
+          </div>
+          <div style="padding-bottom:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:0.5rem;">What if I want to cancel?</div>
+            <p style="color:var(--muted);font-size:0.9rem;font-weight:300;line-height:1.7;">Cancel anytime with no penalty. There are no long-term contracts. We'd rather earn your business every month than lock you in.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" style="padding-top:2rem;">
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <h2>Not sure which plan?<br><span class="accent">Let's talk it through.</span></h2>
+      <p>We'll match you with the right plan for your business — no pressure.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Talk to a Human</a>
+        <a href="index.html#demo" class="btn-secondary">Try the Demo First</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Zy<span>lova</span></div>
+        <p>Your 24/7 AI Employee for Small Business</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#how">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Zylova. All rights reserved.</span>
+      <span>Secured by Stripe &mdash; 256-bit SSL encryption</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
