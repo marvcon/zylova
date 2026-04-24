@@ -16,7 +16,7 @@
    See /agents/README.md for full deploy guide.
    ============================================= */
 
-const ZYLOVA_API_KEY = "";
+const ZYLOVA_API_KEY = "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";
 
 const SYSTEM_PROMPT = `You are a friendly, knowledgeable AI agent for Zylova — a company that builds custom 24/7 AI agents for small businesses. Your role is to demonstrate what a Zylova agent can do and help potential customers understand the product.
 
