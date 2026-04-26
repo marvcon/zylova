@@ -1,18 +1,10 @@
 /* =============================================
-   ZYLOVA — Live AI Agent  v3 (Secure)
-
-   This version calls your Cloudflare Worker
-   proxy instead of the Anthropic API directly.
-   Your API key is NEVER in this file or visible
-   in the browser — it lives safely in Cloudflare.
-
-   After deploying your Worker, replace the
-   WORKER_URL below with your actual Worker URL.
-   It will look like:
-   https://zylova-api-proxy.YOUR-SUBDOMAIN.workers.dev
+   ZYLOVA — Live AI Agent  v4
+   Direct API method for immediate testing.
+   Replace YOUR_API_KEY_HERE with your key.
    ============================================= */
 
-const WORKER_URL = "https://zylova-api-proxy.itessentialsnetwork.workers.dev";
+const ANTHROPIC_API_KEY = "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";
 
 const SYSTEM_PROMPT = `You are a friendly, knowledgeable AI agent for Zylova — a company that builds custom 24/7 AI agents for small businesses. Your role is to demonstrate what a Zylova agent can do and help potential customers understand the product.
 
@@ -81,12 +73,18 @@ async function sendMessage() {
   showTypingIndicator();
 
   try {
-    // Calls your secure Cloudflare Worker — API key never touches the browser
-    const response = await fetch(WORKER_URL, {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-request-proxy': 'true'
+      },
       body: JSON.stringify({
-        system:   SYSTEM_PROMPT,
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
         messages: conversationHistory
       })
     });
